@@ -1,0 +1,121 @@
+html, body{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+h1{
+	font-size: 40px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.table {
+	width: 60%;
+	margin: auto;
+}
+
+th{
+	font-size: 25px;
+}
+
+td:not(.tdIndex){
+	vertical-align: middle;
+	width: 50%;
+}
+
+.tdIndex{
+	vertical-align: middle;
+	width: 33%;
+}
+
+.nombre{
+	font-size: 22px;
+}
+
+h2{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+body > a{
+	display: inline-block;
+	margin: 15px;
+}
+
+.error {
+	width: 60%;
+	margin: auto;
+}
+
+.container{
+	display: table;
+   	width: 100%;
+   	height: 100%;
+}
+
+.centrado{
+	display: table-cell;
+	text-align: center;
+   	vertical-align: middle;
+}
+
+.dropdown{
+	margin-top: 50px;
+}
+
+.dropdown-menu{
+	padding-bottom: 0;
+}
+
+.dropdown a:hover{
+	background-color: #03A9F4;
+}
+
+div.pager {
+    text-align: center;
+    margin: 1em 0;
+}
+
+div.pager span {
+    display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8;
+    text-align: center;
+    cursor: pointer;
+    background: #3287e0;
+    color: white;
+    margin-right: 0.5em;
+}
+
+div.pager span.active {
+    background-color: #0069d9;
+}
+
+.paginas{
+	display: table;
+	border-spacing: 5px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.paginas > div{
+	display: table-cell;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	background-color: #03A9F4;
+}
+
+.paginas > div:hover, .paginas .active{
+	background-color: #007bff;
+}
+
+.paginas a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: white;
+	text-decoration: none;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reserva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body class="fondo-reservas" th:if="${#request.isUserInRole('USER')}">
+
+	<div class="form">
+        <form action="/reservas/add" method="POST" th:object="${reserva}" id="formRegistro">
+            <input th:field="*{fecha}" type="date" th:value="${reserva.fecha}" placeholder="Fecha de reserva" required />
+            <input th:field="*{hora}" type="time" th:value="${reserva.hora}" placeholder="Hora" required  />
+            <input th:field="*{comensales}" type="number" th:value="${reserva.comensales}" placeholder="Comensales" required  />
+            <button type="submit">Reservar</button>
+        </form>
+    </div>
+
+</body>
+<body th:if="${#request.isUserInRole('ADMIN')}">
+
+<table class="table table-bordered">
+		<tr class="cabecera">
+			<th>Dia</th>
+			<th>Hora</th>
+			<th>Comensales</th>
+		</tr>
+		<tr th:each="res: ${listaa}">
+			<td th:text="${res.fecha}" class="nombre"/>
+			<td th:text="${res.hora}" class="nombre"/>
+			<td th:text="${res.comensales}" class="nombre"/>
+		</tr>
+</table>
+	
+
+</body>
+</html>

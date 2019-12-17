@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alumnos</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/main.css}" />
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+	<h1>Lista de Pizzas</h1>
+	<div th:if="${param.error}" class="alert alert-warning alert-dismissible error" th:text="${error}"></div>
+	<table class="table table-bordered">
+		<tr class="cabecera">
+			<th>Sabor</th>
+			<th>Precio</th>
+			<th>Pedir</th>
+		</tr>
+		<tr th:each="pizza: ${lista}">
+			<td th:text="${pizza.sabor}" class="nombre"/>
+			<td th:text="${pizza.precio}+'€'" class="nombre"/>
+			<td>
+				<a th:href="@{/pedidos/add(pizza=${pizza.id})}"  class="btn btn-primary" hidden="true">Añadir</a>
+				<a href="/pedidos/pedido"  class="btn btn-primary" >Añadir</a>
+			</td>
+		</tr>
+	</table>
+	
+	
+
+	<a href="/home">Volver</a>
+	<!-- <p>Direccion<input></p>
+	<h1>Carrito</h1>
+	<div th:if="${param.error}" class="alert alert-warning alert-dismissible error" th:text="${error}"></div>
+	<table class="table table-bordered">
+		<tr class="cabecera">
+			<th>Sabor</th>
+			<th>Precio</th>
+			<th>Cantidad</th>
+			<th>Eliminar del carrito</th>
+		</tr>
+		<tr th:each="cart: ${carrito}">
+			<td th:text="${carrito.sabor}" class="nombre"/>
+			<td th:text="${carrito.precio}+'€'" class="nombre"/>
+			<td th:text="${carrito.cantidad}" class="nombre"/>
+			<td>
+				<a  class="btn btn-primary">Eliminar</a>
+				<a th:if="${#request.isUserInRole('ADMIN')}" th:href="@{/alumnos/eliminar(idalumno=${alumno.idalumno})}" sec:authorize="hasRole('ADMIN')" class="btn btn-primary">Eliminar</a>
+				<a th:if="${#request.isUserInRole('ADMIN')}" th:href="@{/alumnos/formInserta(idalumno=${alumno.idalumno})}" class="btn btn-primary">Modificar</a>
+			</td>
+		</tr>
+	</table> -->
+</body>
+</html>
